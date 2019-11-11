@@ -1,0 +1,19 @@
+Goals: 
+
+
+Curent
+-------------------------
+11/09/19: Discrete movment of motor with push button
+
+
+Possible future goals
+-------------------------
+:feeder design
+:Scheduled meals
+:Switch for selecting scheduled or push button
+:error LED
+:empty hopper detection and alarm (with LED?)
+:knob to select portion amount?
+:web interface
+:food bowl weight detenction
+:
