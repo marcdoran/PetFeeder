@@ -1,0 +1,24 @@
+Not real code, just the concept
+
+Current_button_State = True
+ReadState = False
+flag = 0
+
+
+while True: #switches states only when held
+	ButtonPress = read()
+	if ButtonPress != True
+		delay(50)
+		ButtonPress = read()
+		if Buttonpress != True:
+			doSomthing
+	
+
+
+while True: # only true every press
+	Buttonpress = read()
+	if ButtonPress == True:
+		delay(50)
+		ButtonPress = read()
+		if Buttonpress != True:
+			doSomthing
