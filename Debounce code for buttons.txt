@@ -1,24 +1,47 @@
-Not real code, just the concept
+//Not real code, just the concept
+//for programing microcontroller buttons
 
-Current_button_State = True
-ReadState = False
-flag = 0
+bool Current_button_State = True
+bool ReadState = False
+int flag = 0
+
+//This is Debounce. The delay version.
+
+ 	int ButtonCounter = 0;
+	int ButtonPress = read(); 
+	if(ButtonPress == HIGH and ButtonCounter == 0){
+			delay(50);		//wait for debounce
+			ButtonCounter = 1;
+			doSomthing;
+	} 
+	else if(Buttonpress == False && ButtonCounter == 1){		
+			ButtonCounter = 0;
+	}
 
 
-while True: #switches states only when held
-	ButtonPress = read()
-	if ButtonPress != True
-		delay(50)
-		ButtonPress = read()
-		if Buttonpress != True:
-			doSomthing
-	
 
 
-while True: # only true every press
-	Buttonpress = read()
-	if ButtonPress == True:
-		delay(50)
-		ButtonPress = read()
-		if Buttonpress != True:
-			doSomthing
+
+int Buttonpress = read(); //read current input state
+if(ButtonPress == HIGH){ //while pressed, ButtonPress will = True
+	delay(50) //wait for debounce as you release button
+	ButtonPress = read(); //re read if state changes
+	if(Buttonpress != HIGH){ //If button isn't held down
+		doSomthing;
+	}
+}
+
+
+//This is Debounce. The milli version
+int TimeOfLastDebounce = 0
+int DelayOfBounce = 50//ms
+int ButtonPress = read(); 
+if(ButtonPress == HIGH && ButtonCounter == 0){ 
+	if((milis() - TimeOfLastDebounce) > DelayOfBounce){
+		ButtonCounter = 1;
+		TimeOfLastDebounce = milis();
+	}
+}
+else if(ButtonPress == True && ButtonCounter == 1){
+	ButtonCounter = 0;
+}
